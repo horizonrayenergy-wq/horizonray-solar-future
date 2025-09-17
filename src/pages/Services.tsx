@@ -13,8 +13,13 @@ import {
   Clock,
   Wrench,
   Battery,
-  Factory
+  Factory,
+  Home as HomeIcon,
+  Phone
 } from 'lucide-react';
+import solarInstallation from '@/assets/solar-installation.jpg';
+import technicianWork from '@/assets/technician-work.jpg';
+import energyDashboard from '@/assets/energy-dashboard.jpg';
 
 const Services = () => {
   const solarPackages = [
@@ -121,9 +126,18 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-hero text-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={solarInstallation} 
+            alt="Professional solar panel installation showcasing our quality services"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Solar Installation Packages
             </h1>
@@ -174,8 +188,104 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Solar Packages */}
+      {/* Installation Process */}
       <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-6">
+              Our Installation Process
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From consultation to activation, we handle every step with professionalism and care
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="text-center">
+              <div className="relative mb-6">
+                <div className="w-20 h-20 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 shadow-solar">
+                  <Phone className="w-10 h-10 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-solar-yellow text-primary rounded-full flex items-center justify-center font-bold text-sm">
+                  1
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Free Consultation</h3>
+              <p className="text-muted-foreground">Schedule a no-obligation consultation to assess your home's solar potential</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="relative mb-6">
+                <div className="w-20 h-20 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 shadow-solar">
+                  <HomeIcon className="w-10 h-10 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-solar-yellow text-primary rounded-full flex items-center justify-center font-bold text-sm">
+                  2
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Site Assessment</h3>
+              <p className="text-muted-foreground">Our experts evaluate roof condition, sun exposure, and electrical systems</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="relative mb-6">
+                <div className="w-20 h-20 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 shadow-solar">
+                  <Award className="w-10 h-10 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-solar-yellow text-primary rounded-full flex items-center justify-center font-bold text-sm">
+                  3
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Custom Design</h3>
+              <p className="text-muted-foreground">We create a personalized solar system design optimized for your home</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="relative mb-6">
+                <div className="w-20 h-20 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 shadow-solar">
+                  <Wrench className="w-10 h-10 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-solar-yellow text-primary rounded-full flex items-center justify-center font-bold text-sm">
+                  4
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Professional Installation</h3>
+              <p className="text-muted-foreground">Certified technicians install your system with precision, typically in 1-2 days</p>
+            </div>
+          </div>
+          
+          {/* Process Gallery */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="group relative overflow-hidden rounded-xl shadow-elegant hover:shadow-solar transition-all duration-300">
+              <img 
+                src={technicianWork} 
+                alt="Professional solar technician working on installation"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-lg font-semibold">Expert Installation</h3>
+                  <p className="text-sm">Certified professionals ensuring quality</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="group relative overflow-hidden rounded-xl shadow-elegant hover:shadow-solar transition-all duration-300">
+              <img 
+                src={energyDashboard} 
+                alt="Modern energy monitoring dashboard showing solar performance"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-lg font-semibold">Smart Monitoring</h3>
+                  <p className="text-sm">Track your energy production and savings</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">

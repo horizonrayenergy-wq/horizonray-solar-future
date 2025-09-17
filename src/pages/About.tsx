@@ -9,8 +9,15 @@ import {
   Leaf, 
   ShieldCheck,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Heart,
+  Sun,
+  Shield
 } from 'lucide-react';
+import solarFarmSunset from '@/assets/solar-farm-sunset.jpg';
+import technicianWork from '@/assets/technician-work.jpg';
+import renewableLandscape from '@/assets/renewable-landscape.jpg';
+import happyFamily from '@/assets/happy-family-solar.jpg';
 
 const About = () => {
   const values = [
@@ -33,6 +40,21 @@ const About = () => {
       icon: Award,
       title: "Quality Excellence",
       description: "Industry-leading components and installation standards."
+    },
+    {
+      icon: Sun,
+      title: "Clean Energy Advocacy",
+      description: "Passionate about educating communities on renewable energy benefits."
+    },
+    {
+      icon: Shield,
+      title: "Integrity & Transparency",
+      description: "Honest communication, fair pricing, and reliable long-term service."
+    },
+    {
+      icon: Heart,
+      title: "Community Impact",
+      description: "Creating local jobs and supporting the transition to sustainable energy."
     }
   ];
 
@@ -67,9 +89,18 @@ const About = () => {
   return (
     <div className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-hero text-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={solarFarmSunset} 
+            alt="Beautiful solar farm at sunset representing our renewable energy mission"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               About Horizonray Energy
             </h1>
@@ -95,48 +126,111 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Mission & Vision with Images */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">Our Mission</h2>
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-solar rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Democratizing Solar Energy</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    We believe everyone should have access to clean, affordable energy. Our mission is to make 
-                    solar installations simple, cost-effective, and reliable for homeowners everywhere.
-                  </p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-6">
+              Our Mission & Vision
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Built on purpose, driven by innovation, focused on your energy future
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <Card className="overflow-hidden shadow-elegant hover:shadow-solar transition-all duration-300">
+              <div className="relative h-64">
+                <img 
+                  src={renewableLandscape} 
+                  alt="Renewable energy landscape representing our environmental mission"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="w-12 h-12 bg-gradient-solar rounded-lg flex items-center justify-center mb-2">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Our Mission</h3>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                By combining cutting-edge technology with exceptional service, we help families reduce their 
-                electricity bills while contributing to a sustainable future for the next generation.
-              </p>
-            </div>
+              <CardContent className="p-6">
+                <h4 className="text-xl font-semibold mb-3 text-primary">Democratizing Solar Energy</h4>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We believe everyone should have access to clean, affordable energy. Our mission is to make 
+                  solar installations simple, cost-effective, and reliable for homeowners everywhere.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  By combining cutting-edge technology with exceptional service, we help families reduce their 
+                  electricity bills while contributing to a sustainable future for the next generation.
+                </p>
+              </CardContent>
+            </Card>
 
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">Our Vision</h2>
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-energy rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                  <Eye className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">A Solar-Powered Future</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    We envision a world where renewable energy powers every home and business, creating 
-                    communities that are energy-independent and environmentally responsible.
-                  </p>
+            <Card className="overflow-hidden shadow-elegant hover:shadow-solar transition-all duration-300">
+              <div className="relative h-64">
+                <img 
+                  src={technicianWork} 
+                  alt="Professional solar technician representing our commitment to excellence"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="w-12 h-12 bg-gradient-energy rounded-lg flex items-center justify-center mb-2">
+                    <Eye className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Our Vision</h3>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Through innovation in solar technology and energy storage, we're building the infrastructure 
-                for a cleaner, more sustainable tomorrow.
-              </p>
+              <CardContent className="p-6">
+                <h4 className="text-xl font-semibold mb-3 text-primary">A Solar-Powered Future</h4>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We envision a world where renewable energy powers every home and business, creating 
+                  communities that are energy-independent and environmentally responsible.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Through innovation in solar technology and energy storage, we're building the infrastructure 
+                  for a cleaner, more sustainable tomorrow.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Success Stories Preview */}
+          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-3xl p-8 lg:p-12 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-3xl font-bold mb-6">Real Impact, Real Stories</h3>
+                <p className="text-xl text-gray-200 mb-6">
+                  Every installation creates a success story. Our customers don't just save money – 
+                  they become part of the clean energy revolution.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-solar-yellow" />
+                    <span className="text-lg">99.8% customer satisfaction rate</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-solar-yellow" />
+                    <span className="text-lg">Average 85% reduction in electricity bills</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-6 h-6 text-solar-yellow" />
+                    <span className="text-lg">Zero upfront costs available</span>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <img 
+                  src={happyFamily} 
+                  alt="Happy family with their solar-powered home"
+                  className="rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-solar-yellow text-primary p-4 rounded-xl shadow-lg">
+                  <div className="text-2xl font-bold">$2,500+</div>
+                  <div className="text-sm">Avg. Annual Savings</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -154,11 +248,30 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {values.slice(0, 4).map((value, index) => {
               const Icon = value.icon;
               return (
                 <Card key={index} className="group hover:shadow-solar transition-all duration-300 hover:scale-105">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-16 h-16 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-xl">{value.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-center">{value.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto">
+            {values.slice(4).map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <Card key={index + 4} className="group hover:shadow-solar transition-all duration-300 hover:scale-105">
                   <CardHeader className="text-center pb-4">
                     <div className="w-16 h-16 bg-gradient-solar rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <Icon className="w-8 h-8 text-white" />
