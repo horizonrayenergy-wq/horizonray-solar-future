@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Horizonray Energy Design System - Renewable Energy Theme
+All colors MUST be HSL. Brand colors: Solar Yellow (#FDB813), Energy Orange (#F15A29), Navy Blue (#1E3A5F)
 */
 
 @layer base {
   :root {
+    /* Base colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 211 65% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 211 65% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 211 65% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand colors - Horizonray Energy */
+    --primary: 211 65% 15%; /* Navy Blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --solar-yellow: 44 95% 53%; /* #FDB813 */
+    --solar-yellow-foreground: 211 65% 15%;
+
+    --energy-orange: 16 87% 56%; /* #F15A29 */
+    --energy-orange-foreground: 0 0% 100%;
+
+    --secondary: 44 95% 53%; /* Solar Yellow as secondary */
+    --secondary-foreground: 211 65% 15%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 16 87% 56%; /* Energy Orange as accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 44 95% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-solar: linear-gradient(135deg, hsl(var(--solar-yellow)), hsl(var(--energy-orange)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.9));
+    --gradient-energy: linear-gradient(90deg, hsl(var(--energy-orange)), hsl(var(--solar-yellow)));
+
+    /* Shadows */
+    --shadow-solar: 0 10px 30px -10px hsl(var(--solar-yellow) / 0.3);
+    --shadow-energy: 0 10px 30px -10px hsl(var(--energy-orange) / 0.3);
+    --shadow-elegant: 0 20px 40px -15px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-solar: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +123,69 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Solar Energy Brand Components */
+  .btn-solar {
+    @apply bg-gradient-to-r from-solar-yellow to-energy-orange text-solar-yellow-foreground;
+    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300;
+    @apply hover:shadow-lg hover:shadow-solar-yellow/25 hover:scale-105;
+    @apply active:scale-95 focus:outline-none focus:ring-4 focus:ring-solar-yellow/30;
+  }
+  
+  .btn-energy {
+    @apply bg-primary text-primary-foreground border-2 border-transparent;
+    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300;
+    @apply hover:bg-primary/90 hover:shadow-elegant hover:scale-105;
+    @apply active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary/30;
+  }
+  
+  .btn-outline-solar {
+    @apply border-2 border-solar-yellow text-solar-yellow bg-transparent;
+    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300;
+    @apply hover:bg-solar-yellow hover:text-solar-yellow-foreground hover:shadow-solar;
+    @apply active:scale-95 focus:outline-none focus:ring-4 focus:ring-solar-yellow/30;
+  }
+  
+  .gradient-solar {
+    background: var(--gradient-solar);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-energy {
+    background: var(--gradient-energy);
+  }
+  
+  .shadow-solar {
+    box-shadow: var(--shadow-solar);
+  }
+  
+  .shadow-energy {
+    box-shadow: var(--shadow-energy);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .hero-text {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
+    background: var(--gradient-energy);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
