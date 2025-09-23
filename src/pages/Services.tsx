@@ -286,6 +286,9 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Solar Installation Packages */}
+      <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">
