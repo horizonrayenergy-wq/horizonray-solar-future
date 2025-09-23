@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, Sun, ChevronDown, User, LogOut } from 'lucide-react';
 import { Button } from './button';
+import { useAuth } from '@/hooks/useAuth';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut, isAdmin } = useAuth();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -58,6 +61,29 @@ const Navigation = () => {
             <Button className="btn-solar" size="sm" asChild>
               <Link to="/services">Check Eligibility</Link>
             </Button>
+            
+            {/* Authentication */}
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    {isAdmin && <span className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded">Admin</span>}
+                    <ChevronDown className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={signOut} className="flex items-center gap-2">
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button variant="default" size="sm" asChild>
+                <Link to="/auth">Sign In</Link>
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,6 +119,25 @@ const Navigation = () => {
                 <Button className="btn-solar" asChild>
                   <Link to="/services">Check Eligibility</Link>
                 </Button>
+                
+                {/* Mobile Authentication */}
+                {user ? (
+                  <div className="flex flex-col space-y-2">
+                    {isAdmin && (
+                      <div className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded text-center">
+                        Admin User
+                      </div>
+                    )}
+                    <Button variant="ghost" onClick={signOut} className="justify-start">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </Button>
+                  </div>
+                ) : (
+                  <Button variant="default" asChild>
+                    <Link to="/auth">Sign In</Link>
+                  </Button>
+                )}
               </div>
             </div>
           </div>

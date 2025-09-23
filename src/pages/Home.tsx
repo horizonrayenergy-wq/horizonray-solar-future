@@ -473,6 +473,9 @@ const Home = () => {
             <Button size="lg" variant="outline" className="btn-outline-solar text-lg px-8 py-4 bg-white/10 border-white text-white hover:bg-white hover:text-primary" asChild>
               <Link to="/services">Check Eligibility</Link>
             </Button>
+            <Button size="lg" variant="ghost" className="text-lg px-8 py-4 text-white/80 hover:text-white hover:bg-white/10" asChild>
+              <Link to="/auth">Admin Login</Link>
+            </Button>
           </div>
         </div>
       </section>
