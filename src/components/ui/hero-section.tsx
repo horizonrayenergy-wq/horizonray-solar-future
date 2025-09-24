@@ -24,7 +24,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-2xl leading-relaxed">
-            Join thousands of homeowners saving money and protecting the environment with 
+            Trusted solar installation company in Rajasthan. Join thousands of Indian families saving money and protecting the environment with 
             Horizonray Energy's trusted solar panel installations.
           </p>
 
@@ -32,7 +32,7 @@ const HeroSection = () => {
           <div className="flex flex-wrap items-center gap-6 mb-10 text-gray-300">
             <div className="flex items-center space-x-2">
               <CheckCircle className="w-5 h-5 text-solar-yellow" />
-              <span>Trusted by 3,000+ customers</span>
+              <span>Trusted by 2000+ customers</span>
             </div>
             <div className="flex items-center space-x-2">
               <CheckCircle className="w-5 h-5 text-solar-yellow" />
@@ -61,7 +61,7 @@ const HeroSection = () => {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/20">
             <div className="text-center lg:text-left">
-              <div className="text-3xl font-bold text-solar-yellow mb-1">$2,500+</div>
+              <div className="text-3xl font-bold text-solar-yellow mb-1">₹1,50,000+</div>
               <div className="text-sm text-gray-300">Average Annual Savings</div>
             </div>
             <div className="text-center lg:text-left">

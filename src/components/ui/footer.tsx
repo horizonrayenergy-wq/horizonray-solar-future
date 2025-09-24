@@ -18,22 +18,22 @@ const Footer = () => {
               </div>
               
               <p className="text-gray-300 mb-6 max-w-md">
-                Powering a sustainable future with innovative solar energy solutions. 
-                Trusted by thousands of homeowners for reliable, cost-effective renewable energy.
+                Leading solar installation company in Rajasthan. Powering a sustainable future with innovative solar energy solutions. 
+                Trusted by thousands of families for reliable, cost-effective renewable energy.
               </p>
               
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300">
                   <Phone className="w-4 h-4 text-solar-yellow" />
-                  <span>(555) 123-SOLAR</span>
+                  <span>+91 9782816418</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <Mail className="w-4 h-4 text-solar-yellow" />
-                  <span>info@horizonray.energy</span>
+                  <span>horizonrayenergy@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300">
                   <MapPin className="w-4 h-4 text-solar-yellow" />
-                  <span>123 Solar Street, Green City, GC 12345</span>
+                  <span>Shiv Nagar, Near Bypass, Nibri Road, Kuchera, Dist-Nagaur, Rajasthan - 341024</span>
                 </div>
               </div>
             </div>
