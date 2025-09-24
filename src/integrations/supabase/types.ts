@@ -14,6 +14,128 @@ export type Database = {
   }
   public: {
     Tables: {
+      applications: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          job_id: string | null
+          phone: string | null
+          resume_url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          job_id?: string | null
+          phone?: string | null
+          resume_url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          job_id?: string | null
+          phone?: string | null
+          resume_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      company_settings: {
+        Row: {
+          key: string
+          updated_at: string
+          value: string | null
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          value?: string | null
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          value?: string | null
+        }
+        Relationships: []
+      }
+      jobs: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          location: string | null
+          salary_yearly: number | null
+          slug: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          location?: string | null
+          salary_yearly?: number | null
+          slug?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          location?: string | null
+          salary_yearly?: number | null
+          slug?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          id: string
+          message: string | null
+          name: string
+          phone: string
+          source: string | null
+          status: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          message?: string | null
+          name: string
+          phone: string
+          source?: string | null
+          status?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string
+          source?: string | null
+          status?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -44,6 +166,51 @@ export type Database = {
         }
         Relationships: []
       }
+      settings: {
+        Row: {
+          key: string
+          updated_at: string | null
+          value: string | null
+        }
+        Insert: {
+          key: string
+          updated_at?: string | null
+          value?: string | null
+        }
+        Update: {
+          key?: string
+          updated_at?: string | null
+          value?: string | null
+        }
+        Relationships: []
+      }
+      social_links: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          platform: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          platform: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          platform?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -71,10 +238,9 @@ export type Database = {
     }
     Functions: {
       has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
+        Args:
+          | { _role: Database["public"]["Enums"]["app_role"]; _user_id: string }
+          | { p_role: string; p_uid: string }
         Returns: boolean
       }
     }
